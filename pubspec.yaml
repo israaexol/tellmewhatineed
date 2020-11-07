@@ -27,6 +27,8 @@ dependencies:
   flutter_rating_bar: ^3.0.1+1
   carousel_slider: ^2.3.1
   flutter_auth_buttons: ^0.10.0
+  flutter_barcode_scanner: ^1.0.1
+
 
 
 
@@ -71,6 +73,7 @@ flutter:
     - assets/12.jpg
     - assets/barcode_PNG34.png
     - assets/shampoo.jpg
+    - assets/shampoo_s.png
 
 
 

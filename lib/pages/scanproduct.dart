@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
 import 'package:tellmewhatineed/pages/scannedprod.dart';
-import 'package:tellmewhatineed/pages/prodexpire.dart';
+import 'package:tellmewhatineed/pages/similarproducts.dart';
 
+class ScanProd extends StatefulWidget {
+  @override
+  _ScanProdState createState() => _ScanProdState();
+}
 
+class _ScanProdState extends State<ScanProd> {
 
-class SanitizerRec extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +34,7 @@ class SanitizerRec extends StatelessWidget {
                 Padding( 
                   padding: EdgeInsets.only(right: 20.0),
                   child: GestureDetector(
-                    onTap: () {
-                       Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => ProdExpire()));
-                    },
+                    onTap: () {},
                     child: Icon(
                       Icons.notifications,
                       size: 26.0,
@@ -89,103 +89,52 @@ class SanitizerRec extends StatelessWidget {
             ),
             body: Column(
               children: [
-                SizedBox(height: 100.0),
+                SizedBox(height: 50),
                 Container(
                     margin: EdgeInsets.only(  
                       left: 90.0,
-                      top: 20.0,
+                      top: 60.0,
                       right: 90.0,
                     ),
-                    height: 200.0,
-                    width: 200.0,
+                    height: 270.0,
+                    width: 270.0,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
-                          image: AssetImage('assets/3.jpg'),
+                          image: AssetImage('assets/shampoo_s.png'),
                           fit: BoxFit.contain
                         )
                       ),
               ),
               SizedBox(height: 30),
               Text(
-                'Using a hand sanitizer is also very',
-                style: TextStyle(
+                'Please, try to align the product',
+                 style: TextStyle(
                   fontFamily: 'ProductSans',
-                  fontSize: 22.0,
-                  color: Colors.black,
+                  fontSize: 20.0
                 ),
 
               ),
               SizedBox(height: 10),
               Text(
-                'important,  especially when you' + '\'' +'re not',
-                style: TextStyle(
-                  fontFamily: 'ProductSans',
-                  fontSize: 20.0,
-                  color: Colors.black
-                ),
-
-              ),
-              SizedBox(height: 10),
-              Text(
-                'near any water resources!',
+                'with the camera borders.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'ProductSans',
-                  fontSize: 20.0,
-                 color: Colors.black
-
-                )
-              ),
-              
-            SizedBox(height: 30),
-            Text(
-                'Would you also like to purchase',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'ProductSans',
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                 color: Colors.black
-
-                )
-              ),
-              SizedBox(height: 15),
-            Text(
-                'a hand sanitizer?',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'ProductSans',
-                  fontSize: 20.0,
-                 color: Colors.black,
-                 fontWeight: FontWeight.bold
-
+                  fontSize: 20.0
                 )
               ),
               SizedBox(height: 30),
+               
               Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
 
                    RaisedButton( 
-                    onPressed: () {},
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.transparent)
-                      ),
-                    child: Text( 
-                      'Yes!',
-                      style: 
-                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold),
-                    )
-                    ,
-                  ),
-                  RaisedButton( 
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => SimilarProducts()));
+                        builder: (context) => ScanProduct()));
                     },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
@@ -193,21 +142,43 @@ class SanitizerRec extends StatelessWidget {
                         side: BorderSide(color: Colors.transparent)
                       ),
                     child: Text( 
-                      'Cancel',
+                      '     Save Image     ',
                       style: 
-                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold,color: Colors.black),
                     )
                     ,
                   ),
-
-
               ],
             ),
+            SizedBox(height:15.0),
+            Row(  
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                RaisedButton( 
+                    onPressed: () {
+                       Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => ScanProduct()));
+                    },
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: BorderSide(color: Colors.transparent)
+                      ),
+                    child: Text( 
+                      '  Research  ',
+                      style: 
+                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold,color:Colors.black),
+                    )
+                    ,
+                  ),
+              ],
+            )
+           
             
            
               ],
             ),
 
-    ); 
+    );
   }
 }

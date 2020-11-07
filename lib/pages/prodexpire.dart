@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tellmewhatineed/pages/prodrecommend.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
+import 'package:tellmewhatineed/pages/scannedprod.dart';
+import 'package:tellmewhatineed/pages/scanproduct.dart';
+
 
 void main() {
   runApp(MaterialApp(  
@@ -60,7 +63,37 @@ class _ProdExpireState extends State<ProdExpire> {
                 ),
               ],
             ),  
-            drawer: new Drawer(),
+            drawer: new Drawer(
+               child: ListView(
+            children: <Widget>[
+              ListTile(
+                title: Text("Categories"),
+                trailing: Icon(Icons.arrow_right_rounded)
+              ),
+              ListTile(
+                title: Text("Brands"),
+                trailing: Icon(Icons.arrow_right_rounded),
+              ),
+              ListTile(
+                title: Text("Select Price"),
+                trailing: Icon(Icons.arrow_right_rounded),
+              ),
+              ListTile(
+                title: Text("Scan Product"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => ScanProduct()));
+              },
+              ),
+              SizedBox(height:30.0),
+              ListTile(
+                title: Text("Log Out"),
+              ),
+
+    ],
+  ),
+            ),
             body: Column(
               children: [
                 Container(
@@ -138,10 +171,11 @@ class _ProdExpireState extends State<ProdExpire> {
                     ,
                   ),
                   RaisedButton( 
-                    onPressed: () {
+                    onPressed: () { //ProdRecommend()));
+                    
                        Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => ProdRecommend()));
-                    },
+                        builder: (context) => ScanProd()));},
+
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),

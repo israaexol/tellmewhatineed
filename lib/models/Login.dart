@@ -77,7 +77,7 @@ class Login extends StatelessWidget {
                    RaisedButton( 
                     onPressed: () {
                        Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) =>SanitizerRec()));
+                        builder: (context) =>SimilarProducts()));
                     },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
@@ -100,7 +100,7 @@ class Login extends StatelessWidget {
                    GoogleSignInButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => SanitizerRec()));
+                        builder: (context) => SimilarProducts()));
                       }, 
                     )
               ]

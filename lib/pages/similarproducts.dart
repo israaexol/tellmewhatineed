@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tellmewhatineed/models/Product.dart';
+import 'package:tellmewhatineed/pages/prodexpire.dart';
 import 'package:tellmewhatineed/pages/productdetails.dart';
+import 'package:tellmewhatineed/pages/scannedprod.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
 
 void main() {
@@ -40,7 +42,10 @@ class _SimilarProductsState extends State<SimilarProducts> {
           Padding( 
             padding: EdgeInsets.only(right: 20.0),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => ProdExpire()));
+              },
               child: Icon(
                 Icons.notifications,
                 size: 26.0,
@@ -62,7 +67,38 @@ class _SimilarProductsState extends State<SimilarProducts> {
           ),
         ],
       ),  
-      drawer: new Drawer(),
+      drawer: new Drawer(
+        child: ListView(
+            children: <Widget>[
+              ListTile(
+                title: Text("Categories"),
+                trailing: Icon(Icons.arrow_right_rounded)
+              ),
+              ListTile(
+                title: Text("Brands"),
+                trailing: Icon(Icons.arrow_right_rounded),
+              ),
+              ListTile(
+                title: Text("Select Price"),
+                trailing: Icon(Icons.arrow_right_rounded),
+              ),
+              ListTile(
+                title: Text("Scan Product"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => ScanProduct()));
+              },
+              ),
+              SizedBox(height:30.0),
+              ListTile(
+                title: Text("Log Out"),
+                
+              ),
+
+    ],
+  ),
+      ),
       body: Column(
         children: [
           Row(

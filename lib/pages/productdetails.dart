@@ -4,9 +4,7 @@ import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:tellmewhatineed/pages/prodexpire.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
-
-
-
+import 'package:tellmewhatineed/pages/scannedprod.dart';
 
 class ProdDetails extends StatefulWidget {
 
@@ -47,7 +45,10 @@ class _ProdDetailsState extends State<ProdDetails> {
           Padding( 
             padding: EdgeInsets.only(right: 20.0),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                 Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => ProdExpire()));
+              },
               child: Icon(
                 Icons.notifications,
                 size: 26.0,
@@ -69,7 +70,37 @@ class _ProdDetailsState extends State<ProdDetails> {
           ),
         ],
       ),  
-      drawer: new Drawer(),
+      drawer: new Drawer(
+         child: ListView(
+            children: <Widget>[
+              ListTile(
+                title: Text("Categories"),
+                trailing: Icon(Icons.arrow_right_rounded)
+              ),
+              ListTile(
+                title: Text("Brands"),
+                trailing: Icon(Icons.arrow_right_rounded),
+              ),
+              ListTile(
+                title: Text("Select Price"),
+                trailing: Icon(Icons.arrow_right_rounded),
+              ),
+              ListTile(
+                title: Text("Scan Product"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => ScanProduct()));
+              },
+              ),
+              SizedBox(height:30.0),
+              ListTile(
+                title: Text("Log Out"),
+              ),
+
+    ],
+  ),
+      ),
       body: Column(
         
           crossAxisAlignment: CrossAxisAlignment.center,
