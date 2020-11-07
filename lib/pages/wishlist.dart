@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tellmewhatineed/models/Product.dart';
 import 'package:tellmewhatineed/pages/productdetails.dart';
-import 'package:tellmewhatineed/pages/wishlist.dart';
+import 'package:tellmewhatineed/pages/scannedprod.dart';
 
-void main() {
-  runApp(MaterialApp(  
-    home: SimilarProducts(),
-  ));
-}
-
-class SimilarProducts extends StatefulWidget {
+class WishList extends StatefulWidget {
   @override
-  _SimilarProductsState createState() => _SimilarProductsState();
+  _WishListState createState() => _WishListState();
 }
 
-class _SimilarProductsState extends State<SimilarProducts> {
+class _WishListState extends State<WishList> {
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +46,7 @@ class _SimilarProductsState extends State<SimilarProducts> {
             child: GestureDetector(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => WishList()));
+                        builder: (context) => ScanProduct()));
               },
               child: Icon(
                 Icons.shopping_cart,
@@ -66,12 +60,13 @@ class _SimilarProductsState extends State<SimilarProducts> {
       body: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 margin: EdgeInsets.only(left:20.0),
                 padding: EdgeInsets.all(30.0),
                 child: Text(
-                  'Latest Similar Products',
+                  'Your Wishlist',
                   textAlign: TextAlign.center,
                   style: TextStyle(  
                     fontFamily: 'ProductSans',
@@ -89,26 +84,39 @@ class _SimilarProductsState extends State<SimilarProducts> {
                   mainAxisSpacing: 10,
                   children: <Widget>[
                     _buildCard('TRESemmé Shampoo','10','assets/11.webp', true, context),
-                    _buildCard('Dettol Hand Sanitzer','5','assets/1.jpg', false, context),
-                     _buildCard('Dabur Hand Sanitizer','3', 'assets/2.jpg', false, context),
                      _buildCard('Purell Hand Sanitizer','4', 'assets/3.jpg', true,context),
-                    _buildCard('SoftSoap Antibacterial', '5', 'assets/4.webp', false,context),
-                     _buildCard('Dettol Liquid HandSoap','4', 'assets/5.jpg', true, context),
                      _buildCard('Dial Antibacterial','4', 'assets/6.webp', true,context),
-                     _buildCard('Dial Hydrating Handsoap','4', 'assets/7.jpg', false,context),
-                     _buildCard('Neutrogena Gel-Cream','4', 'assets/8.jpg', false,context),
                      _buildCard('WOW Shampoo','4', 'assets/9.jpg', true,context),
-                     _buildCard('PILGRIM Sulfate Free Shampoo','4', 'assets/10.jpg', false,context),
-                    _buildCard('Wander DiveIN Moisturizer','8', 'assets/12.jpg', false,context),
-
-
-
                   ]
                       
-
                   )
                   ),
-                  SizedBox(height:15.0)
+          Padding(
+            padding: const EdgeInsets.only(  
+              bottom: 100.0
+            ),
+            child: Row(
+              
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                     RaisedButton( 
+                      onPressed: () {},
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(color: Colors.transparent)
+                        ),
+                      child: Text( 
+                        'Purchase All',
+                        style: 
+                        TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold),
+                      )
+                      ,
+                    ),
+                    
+                ],
+              ),
+          ),
           
         ],
       )
@@ -185,11 +193,6 @@ return Padding(
                                    
                                   ),
 );
-
-                   
-                                
-                               
-                              
-                            
+                        
             
 }

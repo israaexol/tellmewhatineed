@@ -3,6 +3,8 @@ import 'package:tellmewhatineed/models/Product.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:tellmewhatineed/pages/prodexpire.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:tellmewhatineed/pages/wishlist.dart';
+
 
 
 
@@ -24,16 +26,18 @@ class _ProdDetailsState extends State<ProdDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
+      backgroundColor: Color(0xffFCDBC1),
       appBar: AppBar(
-        backgroundColor: Colors.red[300],
+        iconTheme: new IconThemeData(color: Color(0xffFFAE70)),
+        backgroundColor: Colors.white,
         title:  
             Container(
               margin: EdgeInsets.only( 
-                right: 120.0
+                right: 0.0
               ),
               alignment: Alignment.center,
               child: Image.asset(
-              'assets/website-columbia-road-logo-color.webp',
+              'assets/ColRoad.png',
               fit: BoxFit.fill,
               height: 80.0,
               width: 80.0,
@@ -53,7 +57,10 @@ class _ProdDetailsState extends State<ProdDetails> {
           Padding( 
             padding: EdgeInsets.only(right: 20.0),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => WishList()));
+              },
               child: Icon(
                 Icons.shopping_cart,
                 size: 26.0,
@@ -73,13 +80,13 @@ class _ProdDetailsState extends State<ProdDetails> {
                   child: Container(
                     margin: EdgeInsets.only(  
                       left: 90.0,
-                      top: 70.0,
+                      top: 30.0,
                       right: 90.0,
                     ),
                     height: 250.0,
                     width: 250.0,
                       decoration: BoxDecoration(
-                        color: Colors.blue[200],
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
                           image: AssetImage(widget.imgPath),
@@ -89,7 +96,7 @@ class _ProdDetailsState extends State<ProdDetails> {
               ),
                 ),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             Text(
               'If you have used this product before',
               style: TextStyle(
@@ -113,10 +120,10 @@ class _ProdDetailsState extends State<ProdDetails> {
                initialRating: 3,
                direction: Axis.horizontal,
                allowHalfRating: true,
-               itemBuilder: (context, _)=> Icon(Icons.favorite, color: Colors.blue[300]),
+               itemBuilder: (context, _)=> Icon(Icons.favorite, color: Color(0xffFF9341)),
                  onRatingUpdate: (rating){print(rating);}
              ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             Text(
               'How long do you generally use this',
               textAlign: TextAlign.center,
@@ -125,7 +132,7 @@ class _ProdDetailsState extends State<ProdDetails> {
                 fontSize: 20.0
               )
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
               Text(
               'Product ?',
               textAlign: TextAlign.center,
@@ -137,21 +144,22 @@ class _ProdDetailsState extends State<ProdDetails> {
             ),
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
-                activeTrackColor: Colors.red[700],
-                inactiveTrackColor: Colors.red[100],
+                activeTrackColor: Color(0xffFF9341),
+                inactiveTrackColor: Colors.white,
                 trackShape: RoundedRectSliderTrackShape(),
                 trackHeight: 4.0,
                 thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
-                thumbColor: Colors.redAccent,
-                overlayColor: Colors.red.withAlpha(32),
+                thumbColor: Color(0xffFF9341),
+                overlayColor: Color(0xffFF9341),
                 overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
                 tickMarkShape: RoundSliderTickMarkShape(),
-                activeTickMarkColor: Colors.red[700],
-                inactiveTickMarkColor: Colors.red[100],
+                activeTickMarkColor: Color(0xffFF9341),
+                inactiveTickMarkColor: Color(0xffFF9341),
                 valueIndicatorShape: PaddleSliderValueIndicatorShape(),
-                valueIndicatorColor: Colors.redAccent,
+                valueIndicatorColor: Color(0xffFFAE70),
                 valueIndicatorTextStyle: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
+                  fontFamily: 'ProductSans'
                 ),
               ),
               child: Slider(
@@ -169,14 +177,13 @@ class _ProdDetailsState extends State<ProdDetails> {
                 },
               ),
             ),
-            SizedBox(height: 15),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
 
                    RaisedButton( 
                     onPressed: () {},
-                    color: Colors.blue[100],
+                    color: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
                         side: BorderSide(color: Colors.transparent)
@@ -184,16 +191,50 @@ class _ProdDetailsState extends State<ProdDetails> {
                     child: Text( 
                       'Buy',
                       style: 
-                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.w500),
+                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold),
                     )
                     ,
                   ),
-                  RaisedButton( 
+                  
+
+
+              ],
+            ),
+            SizedBox(height: 5),
+            Row(  
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                RaisedButton( 
                     onPressed: () {
                        Navigator.of(context).push(MaterialPageRoute(  
                         builder: (context) => ProdExpire()));
                     },
-                    color: Colors.blue[100],
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: BorderSide(color: Colors.transparent)
+                      ),
+                    child: Text( 
+                      'Add to cart',
+                      style: 
+                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold),
+                    )
+                    ,
+                  ),
+
+              ],
+
+            ),
+            SizedBox(height: 5),
+            Row(  
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                RaisedButton( 
+                    onPressed: () {
+                       Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => ProdExpire()));
+                    },
+                    color: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
                         side: BorderSide(color: Colors.transparent)
@@ -201,14 +242,15 @@ class _ProdDetailsState extends State<ProdDetails> {
                     child: Text( 
                       'Cancel',
                       style: 
-                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.w500),
+                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold),
                     )
                     ,
                   ),
 
-
               ],
+
             ),
+
            
 
           ]

@@ -7,6 +7,8 @@ import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tellmewhatineed/models/Logo.dart';
 import 'package:tellmewhatineed/models/AboutUs.dart';
+import 'package:tellmewhatineed/models/Login.dart';
+
 
 
 
@@ -28,6 +30,7 @@ class _LoadingState extends State<Loading> {
   List cardList= [
     Logo(),
     AboutUs(),
+    Login(),
   ];
 
   List<T> map<T>(List list, Function handler) {
@@ -42,10 +45,10 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
-      backgroundColor: Color(0xff4f7c6e),
+      backgroundColor: Color(0xffFFAE70),
       body: ListView( 
             children: [
-              SizedBox(height: 200.0,),
+              SizedBox(height: 200.0),
               Column(  
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

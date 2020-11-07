@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tellmewhatineed/pages/prodrecommend.dart';
+import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
 
-void main() {
-  runApp(MaterialApp(  
-    home: ProdExpire(),
-  ));
-}
 
-class ProdExpire extends StatefulWidget {
-  @override
-  _ProdExpireState createState() => _ProdExpireState();
-}
-
-class _ProdExpireState extends State<ProdExpire> {
+class SanitizerRec extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,63 +53,82 @@ class _ProdExpireState extends State<ProdExpire> {
             drawer: new Drawer(),
             body: Column(
               children: [
+                SizedBox(height: 100.0),
                 Container(
                     margin: EdgeInsets.only(  
                       left: 90.0,
-                      top: 60.0,
+                      top: 20.0,
                       right: 90.0,
                     ),
-                    height: 270.0,
-                    width: 270.0,
+                    height: 200.0,
+                    width: 200.0,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
-                          image: AssetImage('assets/7.jpg'),
+                          image: AssetImage('assets/3.jpg'),
                           fit: BoxFit.contain
                         )
                       ),
               ),
               SizedBox(height: 30),
               Text(
-                'A product you use will end in about',
+                'Using a hand sanitizer is also very',
                 style: TextStyle(
                   fontFamily: 'ProductSans',
-                  fontSize: 20.0
+                  fontSize: 22.0,
+                  color: Colors.black,
                 ),
 
-              ),
-              SizedBox(height: 20),
-              Text(
-                '6 DAYS',
-                style: TextStyle(
-                  fontFamily: 'ProductSans',
-                  fontSize: 50.0,
-                  color: Colors.red[400]
-                ),
-
-              ),
-              SizedBox(height: 20),
-              Text(
-                'Would you like to purchase another',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'ProductSans',
-                  fontSize: 20.0
-                )
               ),
               SizedBox(height: 10),
-                Text(
-                'piece and enjoy it even more?',
-                textAlign: TextAlign.center,
+              Text(
+                'important,  especially when you' + '\'' +'re not',
                 style: TextStyle(
                   fontFamily: 'ProductSans',
-                  fontSize: 20.0
+                  fontSize: 20.0,
+                  color: Colors.black
                 ),
 
               ),
+              SizedBox(height: 10),
+              Text(
+                'near any water resources!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'ProductSans',
+                  fontSize: 20.0,
+                 color: Colors.black
+
+                )
+              ),
+              
+            SizedBox(height: 30),
+            Text(
+                'Would you also like to purchase',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'ProductSans',
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                 color: Colors.black
+
+                )
+              ),
+              SizedBox(height: 15),
+            Text(
+                'a hand sanitizer?',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'ProductSans',
+                  fontSize: 20.0,
+                 color: Colors.black,
+                 fontWeight: FontWeight.bold
+
+                )
+              ),
               SizedBox(height: 30),
-            Row(
+              Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
 
@@ -131,7 +140,7 @@ class _ProdExpireState extends State<ProdExpire> {
                         side: BorderSide(color: Colors.transparent)
                       ),
                     child: Text( 
-                      'Confirm',
+                      'Yes!',
                       style: 
                       TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold),
                     )
@@ -139,8 +148,8 @@ class _ProdExpireState extends State<ProdExpire> {
                   ),
                   RaisedButton( 
                     onPressed: () {
-                       Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => ProdRecommend()));
+                      Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => SimilarProducts()));
                     },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
@@ -158,12 +167,11 @@ class _ProdExpireState extends State<ProdExpire> {
 
               ],
             ),
+            
            
               ],
             ),
 
     ); 
-    
-    
   }
 }

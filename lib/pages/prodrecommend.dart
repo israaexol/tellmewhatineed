@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tellmewhatineed/pages/wishlist.dart';
+
 void main() {
   runApp(MaterialApp(  
     home: ProdRecommend(),
@@ -14,16 +16,18 @@ class _ProdRecommendState extends State<ProdRecommend> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+            backgroundColor: Color(0xffFCDBC1),
             appBar: AppBar(
-              backgroundColor: Colors.red[300],
+              iconTheme: new IconThemeData(color: Color(0xffFFAE70)),
+              backgroundColor: Colors.white,
               title:  
                   Container(
                     margin: EdgeInsets.only( 
-                      right: 120.0
+                      right: 0.0
                     ),
                     alignment: Alignment.center,
                     child: Image.asset(
-                    'assets/website-columbia-road-logo-color.webp',
+                    'assets/ColRoad.png',
                     fit: BoxFit.fill,
                     height: 80.0,
                     width: 80.0,
@@ -43,7 +47,10 @@ class _ProdRecommendState extends State<ProdRecommend> {
                 Padding( 
                   padding: EdgeInsets.only(right: 20.0),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => WishList()));
+                    },
                     child: Icon(
                       Icons.shopping_cart,
                       size: 26.0,
@@ -102,7 +109,7 @@ class _ProdRecommendState extends State<ProdRecommend> {
                     height: 200.0,
                     width: 200.0,
                       decoration: BoxDecoration(
-                        color: Colors.blue[200],
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
                           image: AssetImage('assets/9.jpg'),
@@ -149,7 +156,7 @@ class _ProdRecommendState extends State<ProdRecommend> {
 
                    RaisedButton( 
                     onPressed: () {},
-                    color: Colors.blue[300],
+                    color: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
                         side: BorderSide(color: Colors.transparent)
@@ -157,7 +164,7 @@ class _ProdRecommendState extends State<ProdRecommend> {
                     child: Text( 
                       '     Add to my wishlist     ',
                       style: 
-                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold,color: Colors.white),
+                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold,color: Colors.black),
                     )
                     ,
                   ),
@@ -174,7 +181,7 @@ class _ProdRecommendState extends State<ProdRecommend> {
                     onPressed: () {
                        
                     },
-                    color: Colors.blue[300],
+                    color: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
                         side: BorderSide(color: Colors.transparent)
@@ -182,7 +189,7 @@ class _ProdRecommendState extends State<ProdRecommend> {
                     child: Text( 
                       '  Replace with this one  ',
                       style: 
-                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold,color:Colors.white),
+                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold,color:Colors.black),
                     )
                     ,
                   ),

@@ -69,6 +69,9 @@ flutter:
     - assets/10.jpg
     - assets/11.webp
     - assets/12.jpg
+    - assets/barcode_PNG34.png
+    - assets/shampoo.jpg
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
