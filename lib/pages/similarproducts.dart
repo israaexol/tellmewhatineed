@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tellmewhatineed/main.dart';
 import 'package:tellmewhatineed/models/Product.dart';
+import 'package:tellmewhatineed/pages/finalpage.dart';
 import 'package:tellmewhatineed/pages/prodexpire.dart';
 import 'package:tellmewhatineed/pages/productdetails.dart';
 import 'package:tellmewhatineed/pages/scannedprod.dart';
@@ -73,7 +74,11 @@ class _SimilarProductsState extends State<SimilarProducts> {
             children: <Widget>[
               ListTile(
                 title: Text("Categories"),
-                trailing: Icon(Icons.arrow_right_rounded)
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) =>Final()));
+                },
               ),
               ListTile(
                 title: Text("Brands"),
@@ -99,12 +104,20 @@ class _SimilarProductsState extends State<SimilarProducts> {
                         builder: (context) => SimilarProducts()));
               },
               ),
+               ListTile(
+                title: Text("Wish List"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => WishList()));
+              },
+              ),
               SizedBox(height:30.0),
               ListTile(
                 title: Text("Log Out"),
                 onTap: () {
                    Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) =>Loading()));
+                        builder: (context) =>Final()));
                 },
                 
               ),

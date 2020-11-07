@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tellmewhatineed/pages/finalpage.dart';
+import 'package:tellmewhatineed/pages/prodrecommend.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
 import 'package:tellmewhatineed/pages/scannedprod.dart';
@@ -88,12 +90,20 @@ class SanitizerRec extends StatelessWidget {
                         builder: (context) => SimilarProducts()));
               },
               ),
+               ListTile(
+                title: Text("Wish List"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => WishList()));
+              },
+              ),
               SizedBox(height:30.0),
               ListTile(
                 title: Text("Log Out"),
                  onTap: () {
                    Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) =>Loading()));
+                        builder: (context) =>Final()));
                 },
               ),
 
@@ -182,7 +192,10 @@ class SanitizerRec extends StatelessWidget {
               children: [
 
                    RaisedButton( 
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) =>ProdRecommend()));
+                    },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),

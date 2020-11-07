@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tellmewhatineed/pages/finalpage.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
 import 'package:tellmewhatineed/pages/scannedprod.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
@@ -89,12 +90,20 @@ class _ScanProdState extends State<ScanProd> {
                         builder: (context) => SimilarProducts()));
               },
               ),
+               ListTile(
+                title: Text("Wish List"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => WishList()));
+              },
+              ),
               SizedBox(height:30.0),
               ListTile(
                 title: Text("Log Out"),
                  onTap: () {
                    Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) =>Loading()));
+                        builder: (context) =>Final()));
                 },
               ),
 
@@ -171,7 +180,7 @@ class _ScanProdState extends State<ScanProd> {
                 RaisedButton( 
                     onPressed: () {
                        Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => ScanProduct()));
+                        builder: (context) => SimilarProducts()));
                     },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(

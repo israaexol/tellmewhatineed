@@ -48,7 +48,7 @@ class _LoadingState extends State<Loading> {
       body: ListView( 
             children: [
               SizedBox(height: 200.0),
-              Column(  
+              Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[

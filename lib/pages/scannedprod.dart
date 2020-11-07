@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tellmewhatineed/models/Product.dart';
+import 'package:tellmewhatineed/pages/finalpage.dart';
 import 'package:tellmewhatineed/pages/productdetails.dart';
 import 'package:tellmewhatineed/pages/scannedprod.dart';
 import 'package:tellmewhatineed/pages/prodexpire.dart';
+import 'package:tellmewhatineed/pages/scanproduct.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:tellmewhatineed/main.dart';
+import 'package:tellmewhatineed/pages/wishlist.dart';
 
 
 class ScanProduct extends StatelessWidget {
@@ -74,7 +77,7 @@ class ScanProduct extends StatelessWidget {
                 trailing: Icon(Icons.arrow_right_rounded),
                 onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => ScanProduct()));
+                        builder: (context) => ScanProd()));
               },
               ),
               ListTile(
@@ -85,12 +88,20 @@ class ScanProduct extends StatelessWidget {
                         builder: (context) => SimilarProducts()));
               },
               ),
+               ListTile(
+                title: Text("Wish List"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => WishList()));
+              },
+              ),
               SizedBox(height:30.0),
               ListTile(
                 title: Text("Log Out"),
                  onTap: () {
                    Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) =>Loading()));
+                        builder: (context) =>Final()));
                 },
               ),
 
@@ -139,7 +150,10 @@ class ScanProduct extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                      RaisedButton( 
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) =>ScanProd()));
+                      },
                       color: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18.0),

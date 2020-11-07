@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tellmewhatineed/models/Product.dart';
+import 'package:tellmewhatineed/pages/finalpage.dart';
 import 'package:tellmewhatineed/pages/productdetails.dart';
 import 'package:tellmewhatineed/pages/scannedprod.dart';
 import 'package:tellmewhatineed/pages/prodexpire.dart';
@@ -95,12 +96,20 @@ class _WishListState extends State<WishList> {
                         builder: (context) => SimilarProducts()));
               },
               ),
+               ListTile(
+                title: Text("Wish List"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => WishList()));
+              },
+              ),
               SizedBox(height:30.0),
               ListTile(
                 title: Text("Log Out"),
                  onTap: () {
                    Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) =>Loading()));
+                        builder: (context) =>Final()));
                 },
               ),
 

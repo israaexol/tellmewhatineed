@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tellmewhatineed/pages/finalpage.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
 import 'package:tellmewhatineed/pages/scannedprod.dart';
 import 'package:tellmewhatineed/pages/prodexpire.dart';
@@ -98,12 +99,20 @@ class _ProdRecommendState extends State<ProdRecommend> {
                         builder: (context) => SimilarProducts()));
               },
               ),
+               ListTile(
+                title: Text("Wish List"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => WishList()));
+              },
+              ),
               SizedBox(height:30.0),
               ListTile(
                 title: Text("Log Out"),
                  onTap: () {
                    Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) =>Loading()));
+                        builder: (context) =>Final()));
                 },
               ),
 
@@ -205,7 +214,10 @@ class _ProdRecommendState extends State<ProdRecommend> {
               children: [
 
                    RaisedButton( 
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) =>WishList()));
+                    },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),

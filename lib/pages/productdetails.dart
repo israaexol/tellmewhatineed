@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tellmewhatineed/models/Product.dart';
+import 'package:tellmewhatineed/pages/finalpage.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:tellmewhatineed/pages/prodexpire.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -103,12 +104,20 @@ class _ProdDetailsState extends State<ProdDetails> {
                         builder: (context) => SimilarProducts()));
               },
               ),
+               ListTile(
+                title: Text("Wish List"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => WishList()));
+              },
+              ),
               SizedBox(height:30.0),
               ListTile(
                 title: Text("Log Out"),
                  onTap: () {
                    Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) =>Loading()));
+                        builder: (context) =>Final()));
                 },
               ),
 
@@ -227,7 +236,10 @@ class _ProdDetailsState extends State<ProdDetails> {
               children: [
 
                    RaisedButton( 
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) =>SimilarProducts()));
+                    },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
