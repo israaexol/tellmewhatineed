@@ -3,6 +3,8 @@ import 'package:tellmewhatineed/models/Product.dart';
 import 'package:tellmewhatineed/pages/productdetails.dart';
 import 'package:tellmewhatineed/pages/scannedprod.dart';
 import 'package:tellmewhatineed/pages/prodexpire.dart';
+import 'package:tellmewhatineed/pages/similarproducts.dart';
+import 'package:tellmewhatineed/main.dart';
 
 
 class ScanProduct extends StatelessWidget {
@@ -75,9 +77,21 @@ class ScanProduct extends StatelessWidget {
                         builder: (context) => ScanProduct()));
               },
               ),
+              ListTile(
+                title: Text("Latest Products"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => SimilarProducts()));
+              },
+              ),
               SizedBox(height:30.0),
               ListTile(
                 title: Text("Log Out"),
+                 onTap: () {
+                   Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) =>Loading()));
+                },
               ),
 
     ],

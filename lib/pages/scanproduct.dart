@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
 import 'package:tellmewhatineed/pages/scannedprod.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
+import 'package:tellmewhatineed/main.dart';
+
 
 class ScanProd extends StatefulWidget {
   @override
@@ -79,9 +81,21 @@ class _ScanProdState extends State<ScanProd> {
                         builder: (context) => ScanProduct()));
               },
               ),
+              ListTile(
+                title: Text("Latest Products"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => SimilarProducts()));
+              },
+              ),
               SizedBox(height:30.0),
               ListTile(
                 title: Text("Log Out"),
+                 onTap: () {
+                   Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) =>Loading()));
+                },
               ),
 
     ],

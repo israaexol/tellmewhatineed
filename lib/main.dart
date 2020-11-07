@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:tellmewhatineed/pages/loginpage.dart';
 import 'package:tellmewhatineed/pages/prodexpire.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:carousel_slider/carousel_slider.dart';

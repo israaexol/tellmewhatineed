@@ -5,6 +5,8 @@ import 'package:tellmewhatineed/pages/prodexpire.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
 import 'package:tellmewhatineed/pages/scannedprod.dart';
+import 'package:tellmewhatineed/main.dart';
+
 
 class ProdDetails extends StatefulWidget {
 
@@ -93,9 +95,21 @@ class _ProdDetailsState extends State<ProdDetails> {
                         builder: (context) => ScanProduct()));
               },
               ),
+              ListTile(
+                title: Text("Latest Products"),
+                trailing: Icon(Icons.arrow_right_rounded),
+                onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => SimilarProducts()));
+              },
+              ),
               SizedBox(height:30.0),
               ListTile(
                 title: Text("Log Out"),
+                 onTap: () {
+                   Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) =>Loading()));
+                },
               ),
 
     ],
