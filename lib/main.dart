@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:tellmewhatineed/pages/loginpage.dart';
+import 'package:tellmewhatineed/pages/prodexpire.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
 
 void main() {
@@ -38,7 +39,7 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
-      backgroundColor: Colors.red[300],
+      backgroundColor: Color(0xff4f7c6e),
       body: ListView( 
             children: [
               SizedBox(height:330.0),
@@ -47,13 +48,24 @@ class _LoadingState extends State<Loading> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                   Text(
-                      'Tell me what I need',
+                      'TELL ME',
                       textAlign: TextAlign.center,
                       style: TextStyle(  
-                        fontFamily: 'Bellania',
+                        fontFamily: 'PalmBeach',
                         fontWeight: FontWeight.normal,
                         fontSize: 40.0,
-                        color: Colors.white,
+                        color: Colors.white70,
+                        ),
+                        ),
+                  SizedBox(height: 30.0),
+                  Text(
+                      'WHAT I NEED',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(  
+                        fontFamily: 'PalmBeach',
+                        fontWeight: FontWeight.normal,
+                        fontSize: 40.0,
+                        color: Colors.white70,
                         ),
                         ),
                   SpinKitThreeBounce( 
@@ -63,13 +75,13 @@ class _LoadingState extends State<Loading> {
              
               ],
             ),
-            SizedBox(height: 190.0),
+            SizedBox(height: 100.0),
              Row( 
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end, 
                 children: [
                   Image( 
-                    image: AssetImage('assets/ColRoad.png'),
+                    image: AssetImage('assets/ColRoadWhite.png'),
                     height: 200,
                     width: 200,
                   )
