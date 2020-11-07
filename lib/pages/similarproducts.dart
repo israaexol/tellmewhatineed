@@ -22,11 +22,11 @@ class _SimilarProductsState extends State<SimilarProducts> {
         title:  
             Container(
               margin: EdgeInsets.only( 
-                right: 120.0
+                right: 0.0
               ),
               alignment: Alignment.center,
               child: Image.asset(
-              'assets/website-columbia-road-logo-color.webp',
+              'assets/ColRoadWhite.png',
               fit: BoxFit.fill,
               height: 80.0,
               width: 80.0,

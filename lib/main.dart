@@ -4,6 +4,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:tellmewhatineed/pages/loginpage.dart';
 import 'package:tellmewhatineed/pages/prodexpire.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:tellmewhatineed/models/Logo.dart';
+import 'package:tellmewhatineed/models/AboutUs.dart';
+
+
 
 void main() {
   runApp(MaterialApp(  
@@ -18,23 +23,21 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
-  @override
-  void initState() {
-    super.initState();
-    startTimer();
+  int _currentIndex=0;
+
+  List cardList= [
+    Logo(),
+    AboutUs(),
+  ];
+
+  List<T> map<T>(List list, Function handler) {
+    List<T> result =[];
+    for(var i=0; i < list.length; i++) {
+      result.add(handler(i, list[i]));
+    }
+    return result;
   }
 
-  startTimer() async {
-    var duration = Duration(seconds: 2);
-    return Timer(duration, route);
-  }
-
-  route() {
-    Navigator.pushReplacement(context, MaterialPageRoute(  
-      builder: (context) => SimilarProducts()
-    ));
-    
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,48 +45,62 @@ class _LoadingState extends State<Loading> {
       backgroundColor: Color(0xff4f7c6e),
       body: ListView( 
             children: [
-              SizedBox(height:330.0),
+              SizedBox(height: 200.0,),
               Column(  
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                  Text(
-                      'TELL ME',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(  
-                        fontFamily: 'PalmBeach',
-                        fontWeight: FontWeight.normal,
-                        fontSize: 40.0,
-                        color: Colors.white70,
-                        ),
-                        ),
-                  SizedBox(height: 30.0),
-                  Text(
-                      'WHAT I NEED',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(  
-                        fontFamily: 'PalmBeach',
-                        fontWeight: FontWeight.normal,
-                        fontSize: 40.0,
-                        color: Colors.white70,
-                        ),
-                        ),
-                  SpinKitThreeBounce( 
-                  color: Colors.white,
-                  size: 30.0,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                CarouselSlider( 
+                  options: CarouselOptions(
+                    height: 400.0,
+                    initialPage: 0,
+                    enlargeCenterPage: true,
+                    onPageChanged: (index,reason) {
+                      setState(() {
+                        _currentIndex = index;
+                      });
+                    }),
+                    items: cardList.map((card){
+                            return Builder(
+                              builder:(BuildContext context){
+                                return Container(
+                                  height: MediaQuery.of(context).size.height*2,
+                                  width: MediaQuery.of(context).size.width*1.5,
+                                  child: Card(
+                                    elevation: 0,
+                                    color: Colors.transparent,
+                                    child: card,
+                                  ),
+                                );
+                              }
+                            );
+                          }).toList(),
                 ),
-             
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: map<Widget>(cardList, (index, url) {
+                    return Container(
+                      width: 10.0,
+                      height: 10.0,
+                      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: _currentIndex == index ? Colors.white : Colors.grey,
+                      ),
+                    );
+                  }),
+                ),
+                              
               ],
             ),
-            SizedBox(height: 100.0),
              Row( 
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end, 
                 children: [
                   Image( 
                     image: AssetImage('assets/ColRoadWhite.png'),
-                    height: 200,
-                    width: 200,
+                    height: 150,
+                    width: 150,
                   )
 
 
