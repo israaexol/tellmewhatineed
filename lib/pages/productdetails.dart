@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tellmewhatineed/models/Product.dart';
 import 'package:tellmewhatineed/pages/finalpage.dart';
+import 'package:tellmewhatineed/pages/prodsugg.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:tellmewhatineed/pages/prodexpire.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -264,7 +265,7 @@ class _ProdDetailsState extends State<ProdDetails> {
                 RaisedButton( 
                     onPressed: () {
                        Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => ProdExpire()));
+                        builder: (context) => WishList()));
                     },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
@@ -289,7 +290,7 @@ class _ProdDetailsState extends State<ProdDetails> {
                 RaisedButton( 
                     onPressed: () {
                        Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => ProdExpire()));
+                        builder: (context) => ProdSugg()));
                     },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(

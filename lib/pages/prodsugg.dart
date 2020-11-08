@@ -1,25 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tellmewhatineed/pages/finalpage.dart';
-import 'package:tellmewhatineed/pages/prodrecommend.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
-import 'package:tellmewhatineed/pages/scannedprod.dart';
-import 'package:tellmewhatineed/pages/scanproduct.dart';
-import 'package:tellmewhatineed/main.dart';
+import 'sanitizerrecomm.dart';
+import 'similarproducts.dart';
 
-
-void main() {
-  runApp(MaterialApp(  
-    home: ProdExpire(),
-  ));
-}
-
-class ProdExpire extends StatefulWidget {
-  @override
-  _ProdExpireState createState() => _ProdExpireState();
-}
-
-class _ProdExpireState extends State<ProdExpire> {
+class ProdSugg extends StatelessWidget {
+   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,123 +52,112 @@ class _ProdExpireState extends State<ProdExpire> {
                 ),
               ],
             ),  
-            drawer: new Drawer(
-               child: ListView(
-            children: <Widget>[
-              ListTile(
-                title: Text("Categories"),
-                trailing: Icon(Icons.arrow_right_rounded)
-              ),
-              ListTile(
-                title: Text("Brands"),
-                trailing: Icon(Icons.arrow_right_rounded),
-              ),
-              ListTile(
-                title: Text("Select Price"),
-                trailing: Icon(Icons.arrow_right_rounded),
-              ),
-              ListTile(
-                title: Text("Scan Product"),
-                trailing: Icon(Icons.arrow_right_rounded),
-                onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => ScanProd()));
-              },
-              ),
-              ListTile(
-                title: Text("Latest Products"),
-                trailing: Icon(Icons.arrow_right_rounded),
-                onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => SimilarProducts()));
-              },
-              ),
-              ListTile(
-                title: Text("Wish List"),
-                trailing: Icon(Icons.arrow_right_rounded),
-                onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => WishList()));
-              },
-              ),
-              SizedBox(height:30.0),
-              ListTile(
-                title: Text("Log Out"),
-                 onTap: () {
-                   Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) =>Final()));
-                },
-              ),
-
-    ],
-  ),
-            ),
+            drawer: new Drawer(),
             body: Column(
               children: [
+                SizedBox(height: 100.0),
                 Container(
                     margin: EdgeInsets.only(  
                       left: 90.0,
-                      top: 60.0,
+                      top: 20.0,
                       right: 90.0,
                     ),
-                    height: 270.0,
-                    width: 270.0,
+                    height: 200.0,
+                    width: 200.0,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
-                          image: AssetImage('assets/7.jpg'),
+                          image: AssetImage('assets/13.jpg'),
                           fit: BoxFit.contain
                         )
                       ),
               ),
               SizedBox(height: 30),
               Text(
-                'A product you use will end in about',
+                '   With the COVID-19 pandemic  ',
                 style: TextStyle(
                   fontFamily: 'ProductSans',
-                  fontSize: 20.0
+                  fontSize: 22.0,
+                  color: Colors.black,
                 ),
 
-              ),
-              SizedBox(height: 20),
-              Text(
-                '6 DAYS',
-                style: TextStyle(
-                  fontFamily: 'ProductSans',
-                  fontSize: 50.0,
-                  color: Colors.red[400]
-                ),
-
-              ),
-              SizedBox(height: 20),
-              Text(
-                'Would you like to purchase another',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'ProductSans',
-                  fontSize: 20.0
-                )
               ),
               SizedBox(height: 10),
-                Text(
-                'piece and enjoy it even more?',
-                textAlign: TextAlign.center,
+              Text(
+                'it is super important that you wash',
                 style: TextStyle(
                   fontFamily: 'ProductSans',
-                  fontSize: 20.0
+                  fontSize: 20.0,
+                  color: Colors.black
                 ),
 
               ),
-              SizedBox(height: 30),
-            Row(
+              SizedBox(height: 10),
+              Text(
+                '     your hands very often   ',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'ProductSans',
+                  fontSize: 20.0,
+                 color: Colors.black
+
+                )
+              ),
+              
+            SizedBox(height: 30),
+            Text(
+                'Would you like to purchase a hand soap?',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'ProductSans',
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                 color: Colors.black
+
+                )
+              ),
+              SizedBox(height: 15),
+           
+            
+              Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-
+                  
                    RaisedButton( 
+                     
+                    onPressed: () {
+                       showDialog(context: context,builder:(context){
+                        
+                           return AlertDialog(
+                            
+                             title: Text("How often do you wash Your hands a day?"),
+                             content: Text("                 (Very, We hope!)"),
+                             backgroundColor: Color(0xffFCDBC1),
+                             actions: <Widget>[
+                                RaisedButton( 
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) =>ProdRecommend()));
+                        builder: (context) => SanitizerRec()));
+                    },
+                   
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: BorderSide(color: Colors.transparent)
+                      ),
+                      
+                    child: Text( 
+                      'Submit',
+                      style: 
+                      TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold),
+                    )
+                    ,
+                  ),
+
+                             ],
+                           );
+                       });
                     },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
@@ -190,18 +165,17 @@ class _ProdExpireState extends State<ProdExpire> {
                         side: BorderSide(color: Colors.transparent)
                       ),
                     child: Text( 
-                      'Confirm',
+                      'Yes!',
                       style: 
                       TextStyle(fontSize: 20.0,fontFamily: 'ProductSans',fontWeight: FontWeight.bold),
                     )
                     ,
                   ),
                   RaisedButton( 
-                    onPressed: () { //ProdRecommend()));
-                    
-                       Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => SimilarProducts()));},
-
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) => SimilarProducts()));
+                    },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
@@ -218,12 +192,11 @@ class _ProdExpireState extends State<ProdExpire> {
 
               ],
             ),
+            
            
               ],
             ),
 
     ); 
-    
-    
   }
 }

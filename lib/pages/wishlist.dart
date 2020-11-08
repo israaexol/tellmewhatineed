@@ -70,7 +70,10 @@ class _WishListState extends State<WishList> {
             children: <Widget>[
               ListTile(
                 title: Text("Categories"),
-                trailing: Icon(Icons.arrow_right_rounded)
+                trailing: Icon(Icons.arrow_right_rounded),
+                 onTap: () {
+                   Navigator.of(context).push(MaterialPageRoute(  
+                        builder: (context) =>SimilarProducts()));}
               ),
               ListTile(
                 title: Text("Brands"),

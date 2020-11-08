@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tellmewhatineed/pages/finalpage.dart';
 import 'package:tellmewhatineed/pages/prodrecommend.dart';
+import 'package:tellmewhatineed/pages/scanproduct.dart';
 import 'package:tellmewhatineed/pages/similarproducts.dart';
 import 'package:tellmewhatineed/pages/wishlist.dart';
 import 'package:tellmewhatineed/pages/scannedprod.dart';
@@ -79,7 +80,7 @@ class SanitizerRec extends StatelessWidget {
                 trailing: Icon(Icons.arrow_right_rounded),
                 onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(  
-                        builder: (context) => ScanProduct()));
+                        builder: (context) => ScanProd()));
               },
               ),
               ListTile(
